@@ -21,6 +21,13 @@ class MoveCarOnMap: UIViewController {
         super.viewDidLoad()
                 
         moveCarOnMapViewModel = MoveCarOnMapViewModel(mapMover: mapMy, sourceLocation: sourceLocation, destinationLocation: destinationLocation)
+        
+        let thirdLocation = CLLocationCoordinate2D(latitude: 22.723641, longitude: 75.891746)
+
+        addNewLocation(location: thirdLocation)
     }
     
+    func addNewLocation(location: CLLocationCoordinate2D) {
+        moveCarOnMapViewModel.addNewLocation(location: location)
+    }
 }

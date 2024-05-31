@@ -39,9 +39,9 @@ extension MoveCarOnMapViewModel: MKMapViewDelegate {
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             
-            anView!.canShowCallout = true
+            anView?.canShowCallout = true
         } else {
-            anView!.annotation = annotation
+            anView?.annotation = annotation
         }
         
         let cpa = annotation as! MyAnnotation
