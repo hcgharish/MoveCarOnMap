@@ -8,14 +8,29 @@
 import Foundation
 import MapKit
 
+protocol AddNewLocationToMover {
+    func addNewLocation (location: CLLocationCoordinate2D)
+}
+
 protocol MoveAnnotationDelegate {
-    func addNewLocation (_ location: CLLocationCoordinate2D)
     func start ()
     func moveAnnotation ()
 }
 
-extension MoveAnnotation: MoveAnnotationDelegate {
-    func addNewLocation (_ location: CLLocationCoordinate2D) {
+extension CLLocationCoordinate2D {
+    func location() -> CLLocation {
+        return CLLocation(latitude: latitude, longitude: longitude)
+    }
+}
+
+extension CLLocation {
+    func coordinate2D() -> CLLocationCoordinate2D {
+        return self.coordinate
+    }
+}
+
+extension MoveAnnotation: AddNewLocationToMover {
+    func addNewLocation (location: CLLocationCoordinate2D) {
         if lastAddedLocation == nil {
             lastAddedLocation = location
         }
@@ -30,12 +45,12 @@ extension MoveAnnotation: MoveAnnotationDelegate {
         
         lastAddedLocation = location
     }
+}
+
+extension MoveAnnotation: MoveAnnotationDelegate {
     
     func start () {
-        let latitude = moverAnnotation.coordinate.latitude
-        let longitude = moverAnnotation.coordinate.longitude
-        
-        addNewLocation(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
+        addNewLocation(location: moverAnnotation.coordinate)
         
         moveAnnotation ()
     }
@@ -97,8 +112,8 @@ extension MoveAnnotation: MoveAnnotationDelegate {
                 self.map.addOverlay(self_poliLine)
             }
             
-            if self.moverLastLocation != nil {
-                let location = CLLocation (latitude: point.latitude, longitude: point.longitude)
+            if self.moverLastLocation != nil {                
+                let location = point.location()
                 
                 let degree = BearingBetweenTwoPoints().getBearingBetweenTwoPoints (location, self.moverLastLocation!)
                 

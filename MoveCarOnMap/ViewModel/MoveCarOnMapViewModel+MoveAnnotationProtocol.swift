@@ -36,7 +36,7 @@ extension MoveCarOnMapViewModel: MoveCarOnMapViewModelProtocol {
         
         showAnnotations ()
         
-        moverAnnotation.addNewLocation(location)
+        moverAnnotationToAddNewLocation?.addNewLocation(location: location)
         
     }
     

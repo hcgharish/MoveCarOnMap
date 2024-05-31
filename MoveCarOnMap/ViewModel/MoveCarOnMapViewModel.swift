@@ -18,6 +18,13 @@ class MoveCarOnMapViewModel: NSObject {
     let annotationImageSize = 40
     
     var moverAnnotation: MoveAnnotationDelegate!
+    
+    var moverAnnotationToAddNewLocation: AddNewLocationToMover? {
+        get {
+            return moverAnnotation as? AddNewLocationToMover
+        }
+    }
+    
     var sourceLocation: CLLocationCoordinate2D
     var destinationLocation: CLLocationCoordinate2D
     
@@ -61,5 +68,11 @@ extension MoveCarOnMapViewModel: ShowMoverInCenter {
             self.mapMover.setRegion(region, animated: true)
         }
         
+    }
+}
+
+extension MoveCarOnMapViewModel: AddNewLocationToMover {
+    func addNewLocation (location: CLLocationCoordinate2D) {
+        moverAnnotationToAddNewLocation?.addNewLocation(location: location)
     }
 }

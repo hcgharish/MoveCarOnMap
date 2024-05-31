@@ -129,14 +129,14 @@
 			path = Mover;
 			sourceTree = "<group>";
 		};
-		907721E32C09B36B0082142E /* MoveCarOnMapViewModel */ = {
+		907721E32C09B36B0082142E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				90C32E892C075DD300FAA5CB /* MoveCarOnMapViewModel.swift */,
 				907721DF2C09B2F20082142E /* MoveCarOnMapViewModel+MKMapViewDelegate.swift */,
 				907721E12C09B31F0082142E /* MoveCarOnMapViewModel+MoveAnnotationProtocol.swift */,
 			);
-			path = MoveCarOnMapViewModel;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		90C32E492C07521100FAA5CB = {
@@ -162,7 +162,7 @@
 		90C32E542C07521100FAA5CB /* MoveCarOnMap */ = {
 			isa = PBXGroup;
 			children = (
-				907721E32C09B36B0082142E /* MoveCarOnMapViewModel */,
+				907721E32C09B36B0082142E /* ViewModel */,
 				907721DE2C09AD180082142E /* Mover */,
 				90C32E552C07521100FAA5CB /* AppDelegate.swift */,
 				90C32E572C07521100FAA5CB /* SceneDelegate.swift */,

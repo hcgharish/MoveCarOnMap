@@ -21,37 +21,34 @@ struct CalculatePath {
     
     mutating func makePath () -> CalculatePathReturn {
         var dist = 0.0
-        if locationSource != nil && locationDestination != nil {
+        
+        if let loc1 = locationSource?.location(),
+           let loc2 = locationDestination?.location() {
             
-            if (locationSource?.latitude)! != 0.0 && (locationSource?.longitude)! != 0.0 && (locationDestination?.latitude)! != 0.0 && (locationDestination?.longitude)! != 0.0 {
-                let loc1 = CLLocation(latitude: (locationSource?.latitude)!, longitude: (locationSource?.longitude)!)
-                let loc2 = CLLocation(latitude: (locationDestination?.latitude)!, longitude: (locationDestination?.longitude)!)
+            dist = loc1.distance(from: loc2)
+            
+//            print("loc1-\(dist)-\(loc1)-")
+//            print("loc1-\(dist)-")
+//            
+//            //dist /= 10.0
+//            //dist /= 2.0
+//            
+//            print("loc2-\(dist)-\(loc2)-")
+//            print("loc2-\(dist)-")
+//            print("==========================================")
+            
+            if dist > 0.0 {
+                points = [[Double]](repeating: [Double](repeating: 0.0, count: 2), count: Int(dist))
                 
-                dist = loc1.distance(from: loc2)
-                
-//                print("loc1-\(dist)-\(loc1)-")
-//                print("loc1-\(dist)-")
-//                
-//                //dist /= 10.0
-//                //dist /= 2.0
-//                
-//                print("loc2-\(dist)-\(loc2)-")
-//                print("loc2-\(dist)-")
-//                print("==========================================")
-                
-                if dist > 0.0 {
-                    points = [[Double]](repeating: [Double](repeating: 0.0, count: 2), count: Int(dist))
+                if dist >= 2 {
+                    points?[0][0] = loc1.coordinate.latitude
+                    points?[0][1] = loc1.coordinate.longitude
                     
-                    if dist >= 2 {
-                        points?[0][0] = loc1.coordinate.latitude
-                        points?[0][1] = loc1.coordinate.longitude
-                        
-                        points?[Int(dist) - 1][0] = loc2.coordinate.latitude
-                        points?[Int(dist) - 1][1] = loc2.coordinate.longitude
-                    }
-                    
-                    self.getMiddleLocation(0, Int(dist) - 1, Int(dist))
+                    points?[Int(dist) - 1][0] = loc2.coordinate.latitude
+                    points?[Int(dist) - 1][1] = loc2.coordinate.longitude
                 }
+                
+                self.getMiddleLocation(0, Int(dist) - 1, Int(dist))
             }
         }
         
