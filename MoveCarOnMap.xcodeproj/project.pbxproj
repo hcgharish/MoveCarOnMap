@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9047E1D92C08B8000043991C /* CalculatePath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9047E1D82C08B8000043991C /* CalculatePath.swift */; };
+		9047E1DB2C08B8620043991C /* CalculatePathReturn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9047E1DA2C08B8620043991C /* CalculatePathReturn.swift */; };
+		9047E1DD2C08B88E0043991C /* CLLocationCoordinate2D+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9047E1DC2C08B88E0043991C /* CLLocationCoordinate2D+Extension.swift */; };
+		9047E1DF2C08B8DA0043991C /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9047E1DE2C08B8DA0043991C /* MyAnnotation.swift */; };
+		907721DB2C0991E90082142E /* BearingBetweenTwoPoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907721DA2C0991E90082142E /* BearingBetweenTwoPoints.swift */; };
+		907721DD2C099BE10082142E /* SleepTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907721DC2C099BE10082142E /* SleepTime.swift */; };
+		907721E02C09B2F20082142E /* MoveCarOnMapViewModel+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907721DF2C09B2F20082142E /* MoveCarOnMapViewModel+MKMapViewDelegate.swift */; };
+		907721E22C09B31F0082142E /* MoveCarOnMapViewModel+MoveAnnotationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907721E12C09B31F0082142E /* MoveCarOnMapViewModel+MoveAnnotationProtocol.swift */; };
+		907721E52C09C01D0082142E /* MoveAnnotation+MoveAnnotationDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = 907721E42C09C01D0082142E /* MoveAnnotation+MoveAnnotationDelegate .swift */; };
 		90C32E562C07521100FAA5CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C32E552C07521100FAA5CB /* AppDelegate.swift */; };
 		90C32E582C07521100FAA5CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C32E572C07521100FAA5CB /* SceneDelegate.swift */; };
 		90C32E5A2C07521100FAA5CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C32E592C07521100FAA5CB /* ViewController.swift */; };
@@ -18,6 +27,9 @@
 		90C32E792C07521400FAA5CB /* MoveCarOnMapUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C32E782C07521400FAA5CB /* MoveCarOnMapUITestsLaunchTests.swift */; };
 		90C32E872C0755FD00FAA5CB /* MoveAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C32E852C0755FD00FAA5CB /* MoveAnnotation.swift */; };
 		90C32E882C0755FD00FAA5CB /* MoveCarOnMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C32E862C0755FD00FAA5CB /* MoveCarOnMap.swift */; };
+		90C32E8A2C075DD300FAA5CB /* MoveCarOnMapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C32E892C075DD300FAA5CB /* MoveCarOnMapViewModel.swift */; };
+		90C32E8C2C07669500FAA5CB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C32E8B2C07669500FAA5CB /* UIImage+Extension.swift */; };
+		90C32E8E2C0766C500FAA5CB /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C32E8D2C0766C500FAA5CB /* UIColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +50,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9047E1D82C08B8000043991C /* CalculatePath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatePath.swift; sourceTree = "<group>"; };
+		9047E1DA2C08B8620043991C /* CalculatePathReturn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatePathReturn.swift; sourceTree = "<group>"; };
+		9047E1DC2C08B88E0043991C /* CLLocationCoordinate2D+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocationCoordinate2D+Extension.swift"; sourceTree = "<group>"; };
+		9047E1DE2C08B8DA0043991C /* MyAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
+		907721DA2C0991E90082142E /* BearingBetweenTwoPoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BearingBetweenTwoPoints.swift; sourceTree = "<group>"; };
+		907721DC2C099BE10082142E /* SleepTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepTime.swift; sourceTree = "<group>"; };
+		907721DF2C09B2F20082142E /* MoveCarOnMapViewModel+MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoveCarOnMapViewModel+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
+		907721E12C09B31F0082142E /* MoveCarOnMapViewModel+MoveAnnotationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoveCarOnMapViewModel+MoveAnnotationProtocol.swift"; sourceTree = "<group>"; };
+		907721E42C09C01D0082142E /* MoveAnnotation+MoveAnnotationDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoveAnnotation+MoveAnnotationDelegate .swift"; sourceTree = "<group>"; };
 		90C32E522C07521100FAA5CB /* MoveCarOnMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoveCarOnMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C32E552C07521100FAA5CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90C32E572C07521100FAA5CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,6 +74,9 @@
 		90C32E782C07521400FAA5CB /* MoveCarOnMapUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCarOnMapUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		90C32E852C0755FD00FAA5CB /* MoveAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveAnnotation.swift; sourceTree = "<group>"; };
 		90C32E862C0755FD00FAA5CB /* MoveCarOnMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoveCarOnMap.swift; sourceTree = "<group>"; };
+		90C32E892C075DD300FAA5CB /* MoveCarOnMapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveCarOnMapViewModel.swift; sourceTree = "<group>"; };
+		90C32E8B2C07669500FAA5CB /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		90C32E8D2C0766C500FAA5CB /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +104,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9047E1E02C08BBA40043991C /* MoverSupportings */ = {
+			isa = PBXGroup;
+			children = (
+				907721DA2C0991E90082142E /* BearingBetweenTwoPoints.swift */,
+				9047E1D82C08B8000043991C /* CalculatePath.swift */,
+				9047E1DA2C08B8620043991C /* CalculatePathReturn.swift */,
+				9047E1DC2C08B88E0043991C /* CLLocationCoordinate2D+Extension.swift */,
+				9047E1DE2C08B8DA0043991C /* MyAnnotation.swift */,
+				907721DC2C099BE10082142E /* SleepTime.swift */,
+				90C32E8D2C0766C500FAA5CB /* UIColor+Extension.swift */,
+				90C32E8B2C07669500FAA5CB /* UIImage+Extension.swift */,
+			);
+			path = MoverSupportings;
+			sourceTree = "<group>";
+		};
+		907721DE2C09AD180082142E /* Mover */ = {
+			isa = PBXGroup;
+			children = (
+				9047E1E02C08BBA40043991C /* MoverSupportings */,
+				90C32E852C0755FD00FAA5CB /* MoveAnnotation.swift */,
+				907721E42C09C01D0082142E /* MoveAnnotation+MoveAnnotationDelegate .swift */,
+			);
+			path = Mover;
+			sourceTree = "<group>";
+		};
+		907721E32C09B36B0082142E /* MoveCarOnMapViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				90C32E892C075DD300FAA5CB /* MoveCarOnMapViewModel.swift */,
+				907721DF2C09B2F20082142E /* MoveCarOnMapViewModel+MKMapViewDelegate.swift */,
+				907721E12C09B31F0082142E /* MoveCarOnMapViewModel+MoveAnnotationProtocol.swift */,
+			);
+			path = MoveCarOnMapViewModel;
+			sourceTree = "<group>";
+		};
 		90C32E492C07521100FAA5CB = {
 			isa = PBXGroup;
 			children = (
@@ -103,10 +162,11 @@
 		90C32E542C07521100FAA5CB /* MoveCarOnMap */ = {
 			isa = PBXGroup;
 			children = (
+				907721E32C09B36B0082142E /* MoveCarOnMapViewModel */,
+				907721DE2C09AD180082142E /* Mover */,
 				90C32E552C07521100FAA5CB /* AppDelegate.swift */,
 				90C32E572C07521100FAA5CB /* SceneDelegate.swift */,
 				90C32E592C07521100FAA5CB /* ViewController.swift */,
-				90C32E852C0755FD00FAA5CB /* MoveAnnotation.swift */,
 				90C32E862C0755FD00FAA5CB /* MoveCarOnMap.swift */,
 				90C32E5B2C07521100FAA5CB /* Main.storyboard */,
 				90C32E5E2C07521300FAA5CB /* Assets.xcassets */,
@@ -264,11 +324,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				907721E22C09B31F0082142E /* MoveCarOnMapViewModel+MoveAnnotationProtocol.swift in Sources */,
+				9047E1DD2C08B88E0043991C /* CLLocationCoordinate2D+Extension.swift in Sources */,
 				90C32E882C0755FD00FAA5CB /* MoveCarOnMap.swift in Sources */,
+				9047E1DB2C08B8620043991C /* CalculatePathReturn.swift in Sources */,
+				90C32E8C2C07669500FAA5CB /* UIImage+Extension.swift in Sources */,
+				9047E1DF2C08B8DA0043991C /* MyAnnotation.swift in Sources */,
 				90C32E5A2C07521100FAA5CB /* ViewController.swift in Sources */,
 				90C32E872C0755FD00FAA5CB /* MoveAnnotation.swift in Sources */,
+				9047E1D92C08B8000043991C /* CalculatePath.swift in Sources */,
 				90C32E562C07521100FAA5CB /* AppDelegate.swift in Sources */,
+				90C32E8A2C075DD300FAA5CB /* MoveCarOnMapViewModel.swift in Sources */,
+				907721E52C09C01D0082142E /* MoveAnnotation+MoveAnnotationDelegate .swift in Sources */,
+				907721DD2C099BE10082142E /* SleepTime.swift in Sources */,
 				90C32E582C07521100FAA5CB /* SceneDelegate.swift in Sources */,
+				907721E02C09B2F20082142E /* MoveCarOnMapViewModel+MKMapViewDelegate.swift in Sources */,
+				907721DB2C0991E90082142E /* BearingBetweenTwoPoints.swift in Sources */,
+				90C32E8E2C0766C500FAA5CB /* UIColor+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
