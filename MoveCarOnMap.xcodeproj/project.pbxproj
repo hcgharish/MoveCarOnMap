@@ -16,6 +16,8 @@
 		907721E02C09B2F20082142E /* MoveCarOnMapViewModel+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907721DF2C09B2F20082142E /* MoveCarOnMapViewModel+MKMapViewDelegate.swift */; };
 		907721E22C09B31F0082142E /* MoveCarOnMapViewModel+MoveAnnotationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 907721E12C09B31F0082142E /* MoveCarOnMapViewModel+MoveAnnotationProtocol.swift */; };
 		907721E52C09C01D0082142E /* MoveAnnotation+MoveAnnotationDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = 907721E42C09C01D0082142E /* MoveAnnotation+MoveAnnotationDelegate .swift */; };
+		9097AE832C0DB57B000EA0E0 /* Location+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097AE812C0DB57B000EA0E0 /* Location+Extensions.swift */; };
+		9097AE842C0DB57B000EA0E0 /* MoveAnnotation+AddNewLocationToMover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9097AE822C0DB57B000EA0E0 /* MoveAnnotation+AddNewLocationToMover.swift */; };
 		90C32E562C07521100FAA5CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C32E552C07521100FAA5CB /* AppDelegate.swift */; };
 		90C32E582C07521100FAA5CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C32E572C07521100FAA5CB /* SceneDelegate.swift */; };
 		90C32E5A2C07521100FAA5CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90C32E592C07521100FAA5CB /* ViewController.swift */; };
@@ -59,6 +61,8 @@
 		907721DF2C09B2F20082142E /* MoveCarOnMapViewModel+MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoveCarOnMapViewModel+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
 		907721E12C09B31F0082142E /* MoveCarOnMapViewModel+MoveAnnotationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoveCarOnMapViewModel+MoveAnnotationProtocol.swift"; sourceTree = "<group>"; };
 		907721E42C09C01D0082142E /* MoveAnnotation+MoveAnnotationDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MoveAnnotation+MoveAnnotationDelegate .swift"; sourceTree = "<group>"; };
+		9097AE812C0DB57B000EA0E0 /* Location+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+Extensions.swift"; sourceTree = "<group>"; };
+		9097AE822C0DB57B000EA0E0 /* MoveAnnotation+AddNewLocationToMover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MoveAnnotation+AddNewLocationToMover.swift"; sourceTree = "<group>"; };
 		90C32E522C07521100FAA5CB /* MoveCarOnMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoveCarOnMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		90C32E552C07521100FAA5CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		90C32E572C07521100FAA5CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,9 +126,11 @@
 		907721DE2C09AD180082142E /* Mover */ = {
 			isa = PBXGroup;
 			children = (
-				9047E1E02C08BBA40043991C /* MoverSupportings */,
+				9097AE812C0DB57B000EA0E0 /* Location+Extensions.swift */,
 				90C32E852C0755FD00FAA5CB /* MoveAnnotation.swift */,
+				9097AE822C0DB57B000EA0E0 /* MoveAnnotation+AddNewLocationToMover.swift */,
 				907721E42C09C01D0082142E /* MoveAnnotation+MoveAnnotationDelegate .swift */,
+				9047E1E02C08BBA40043991C /* MoverSupportings */,
 			);
 			path = Mover;
 			sourceTree = "<group>";
@@ -332,6 +338,7 @@
 				9047E1DF2C08B8DA0043991C /* MyAnnotation.swift in Sources */,
 				90C32E5A2C07521100FAA5CB /* ViewController.swift in Sources */,
 				90C32E872C0755FD00FAA5CB /* MoveAnnotation.swift in Sources */,
+				9097AE832C0DB57B000EA0E0 /* Location+Extensions.swift in Sources */,
 				9047E1D92C08B8000043991C /* CalculatePath.swift in Sources */,
 				90C32E562C07521100FAA5CB /* AppDelegate.swift in Sources */,
 				90C32E8A2C075DD300FAA5CB /* MoveCarOnMapViewModel.swift in Sources */,
@@ -339,6 +346,7 @@
 				907721DD2C099BE10082142E /* SleepTime.swift in Sources */,
 				90C32E582C07521100FAA5CB /* SceneDelegate.swift in Sources */,
 				907721E02C09B2F20082142E /* MoveCarOnMapViewModel+MKMapViewDelegate.swift in Sources */,
+				9097AE842C0DB57B000EA0E0 /* MoveAnnotation+AddNewLocationToMover.swift in Sources */,
 				907721DB2C0991E90082142E /* BearingBetweenTwoPoints.swift in Sources */,
 				90C32E8E2C0766C500FAA5CB /* UIColor+Extension.swift in Sources */,
 			);

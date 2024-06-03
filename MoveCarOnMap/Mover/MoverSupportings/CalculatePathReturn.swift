@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import MapKit
 
 struct CalculatePathReturn {
     var points: [[Double]]
@@ -16,4 +17,15 @@ struct CalculatePathReturn {
         self.distance = distance
     }
     
+    func isValid() -> Bool {
+        if points.count > 0, distance > 0 {
+            return true
+        }
+        
+        return false
+    }
+    
+    func getLocationFor(index: Int) -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2DMake(points[index][0], points[index][1])
+    }
 }

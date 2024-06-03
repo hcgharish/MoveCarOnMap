@@ -9,12 +9,12 @@ import Foundation
 import MapKit
 
 struct CalculatePath {
-    var locationSource: CLLocationCoordinate2D? = nil
-    var locationDestination: CLLocationCoordinate2D? = nil
+    var sourceLoc: CLLocationCoordinate2D? = nil
+    var destinationLoc: CLLocationCoordinate2D? = nil
     
-    init(locationSource: CLLocationCoordinate2D, locationDestination: CLLocationCoordinate2D) {
-        self.locationSource = locationSource
-        self.locationDestination = locationDestination
+    init(sourceLoc: CLLocationCoordinate2D, destinationLoc: CLLocationCoordinate2D) {
+        self.sourceLoc = sourceLoc
+        self.destinationLoc = destinationLoc
     }
     
     var points: [[Double]]? =  nil
@@ -22,8 +22,8 @@ struct CalculatePath {
     mutating func makePath () -> CalculatePathReturn {
         var dist = 0.0
         
-        if let loc1 = locationSource?.location(),
-           let loc2 = locationDestination?.location() {
+        if let loc1 = sourceLoc?.location(),
+           let loc2 = destinationLoc?.location() {
             
             dist = loc1.distance(from: loc2)
             

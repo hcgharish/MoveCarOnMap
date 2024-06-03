@@ -29,7 +29,6 @@ class MoveAnnotation: NSObject {
         self.destinationLocation = destinationLocation
         self.moverAnnotation = moverAnnotation
         self.showMoverInCenter = showMoverInCenter
-        
     }
     
     deinit {

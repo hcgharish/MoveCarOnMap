@@ -22,6 +22,7 @@ extension MoveCarOnMapViewModel: MKMapViewDelegate {
             let polylineRenderer = MKPolylineRenderer(overlay: overlay)
             polylineRenderer.strokeColor = UIColor.hexColor(0x2699FB)
             polylineRenderer.lineWidth = 3
+            
             return polylineRenderer
         }
         

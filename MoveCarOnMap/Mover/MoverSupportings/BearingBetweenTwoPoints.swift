@@ -9,11 +9,10 @@ import Foundation
 import MapKit
 
 struct BearingBetweenTwoPoints {
-    func degreesToRadians(_ degrees: Double) -> Double { return degrees * Double.pi / 180.0 }
-    func radiansToDegrees(_ radians: Double) -> Double { return radians * 180.0 / Double.pi }
+    private func degreesToRadians(_ degrees: Double) -> Double { return degrees * Double.pi / 180.0 }
+    private func radiansToDegrees(_ radians: Double) -> Double { return radians * 180.0 / Double.pi }
     
-    func getBearingBetweenTwoPoints(_ point1: CLLocation, _ point2: CLLocation) -> Double {
-        
+    private func getBearingBetweenTwoPoints(_ point1: CLLocation, _ point2: CLLocation) -> Double {        
         let lat1 = degreesToRadians(point1.coordinate.latitude)
         let lon1 = degreesToRadians(point1.coordinate.longitude)
         
@@ -28,5 +27,11 @@ struct BearingBetweenTwoPoints {
         let radiansBearing = atan2(y, x)
         
         return radiansToDegrees(radiansBearing)
+    }
+    
+    func getCGAffineTransform(location1 point1: CLLocation, location2 point2: CLLocation) -> CGAffineTransform {
+        let degree = getBearingBetweenTwoPoints (point1, point2)
+        
+        return CGAffineTransform(rotationAngle: CGFloat(BearingBetweenTwoPoints().degreesToRadians(degree)))
     }
 }

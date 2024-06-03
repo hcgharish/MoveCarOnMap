@@ -8,43 +8,9 @@
 import Foundation
 import MapKit
 
-protocol AddNewLocationToMover {
-    func addNewLocation (location: CLLocationCoordinate2D)
-}
-
 protocol MoveAnnotationDelegate {
     func start ()
     func moveAnnotation ()
-}
-
-extension CLLocationCoordinate2D {
-    func location() -> CLLocation {
-        return CLLocation(latitude: latitude, longitude: longitude)
-    }
-}
-
-extension CLLocation {
-    func coordinate2D() -> CLLocationCoordinate2D {
-        return self.coordinate
-    }
-}
-
-extension MoveAnnotation: AddNewLocationToMover {
-    func addNewLocation (location: CLLocationCoordinate2D) {
-        if lastAddedLocation == nil {
-            lastAddedLocation = location
-        }
-        
-        var ob = CalculatePath(locationSource: lastAddedLocation!, locationDestination: location)
-        
-        let obReturn = ob.makePath()
-        
-        if obReturn.points.count > 0, obReturn.distance > 0.0 {
-            routePoints!.add(obReturn)
-        }
-        
-        lastAddedLocation = location
-    }
 }
 
 extension MoveAnnotation: MoveAnnotationDelegate {
@@ -58,30 +24,7 @@ extension MoveAnnotation: MoveAnnotationDelegate {
     func moveAnnotation () {
         DispatchQueue.global().async {
             while (true) {
-                var boolWait = true
-                
-                if let count = self.routePoints?.count, count > 0, let ob = self.routePoints?[0] as? CalculatePathReturn {
-                    self.routePoints?.removeObject(at: 0)
-                    
-                    let count = ob.points.count
-                    
-                    if count > 0, ob.distance > 0 {
-                        
-                        //let sleepFor = Double(sleepTime) / Double(count * 8)
-                        let sleepFor = Double(SleepTime.sleepTime) / Double(count * 1)
-                        boolWait = false
-                        
-                        for i in 0..<Int(count) {
-                            let loc = CLLocationCoordinate2DMake((ob.points[i][0]), (ob.points[i][1]))
-                            
-                            if loc.latitude != 0.0 && loc.longitude != 0.0 {
-                                self.move (self.moverAnnotation, loc, sleepFor)
-                            }
-                            
-                            usleep(useconds_t(Int(sleepFor)))
-                        }
-                    }
-                }
+                let boolWait = self.moveDecision()
                 
                 if boolWait {
                     usleep(SleepTime.oneSecond)
@@ -90,42 +33,77 @@ extension MoveAnnotation: MoveAnnotationDelegate {
         }
     }
     
-    private func move (_ ano: MyAnnotation, _ point: CLLocationCoordinate2D, _ sleep: Double) {
+    private func getTopCalculatePathReturn() -> (obj: CalculatePathReturn?, count: Int) {
+        if let points = routePoints?.count, points > 0, let calculatePathReturn = routePoints?[0] as? CalculatePathReturn {
+            routePoints?.removeObject(at: 0)
+            
+            return (calculatePathReturn, points)
+        }
+        
+        return (nil, 0)
+    }
+    
+    private func moveDecision() -> Bool {
+        var boolWait = true
+        
+        let touple = getTopCalculatePathReturn()
+
+        if let calculatePathReturn = touple.obj {
+            let totalPoints = calculatePathReturn.points.count
+            
+            if calculatePathReturn.isValid() {
+                let sleepFor = Double(SleepTime.sleepTime) / Double(totalPoints * 1)
+                boolWait = false
+                
+                for i in 0..<Int(totalPoints) {
+                    let loc = calculatePathReturn.getLocationFor(index: i)
+                    
+                    if loc.isValidLocation() {
+                        move (moverAnnotation, loc, sleepFor)
+                    }
+                    
+                    usleep(useconds_t(Int(sleepFor)))
+                }
+            }
+        }
+        
+        return boolWait
+    }
+    
+    private func getMKPolyline(location: CLLocationCoordinate2D) -> MKPolyline? {
+        if let destinationLocation = self.destinationLocation {
+            let coords = UnsafeMutablePointer<CLLocationCoordinate2D>.allocate(capacity: 2)
+            
+            coords[0] = destinationLocation
+            coords[1] = location
+            
+            return MKPolyline.init(coordinates: coords, count: 2)
+        }
+        
+        return nil
+    }
+    
+    private func move (_ annotation: MyAnnotation, _ point: CLLocationCoordinate2D, _ sleep: Double) {
         DispatchQueue.main.async {
             if self.poliLine != nil {
                 self.map.removeOverlay(self.poliLine!)
             }
             
-            if self.destinationLocation != nil {
-                let coords = UnsafeMutablePointer<CLLocationCoordinate2D>.allocate(capacity: 2)
+            if let poliLine = self.getMKPolyline(location: point) {
+                self.poliLine = poliLine
                 
-                let loc1 = self.destinationLocation!
-                let loc2 = CLLocationCoordinate2D(latitude: point.latitude, longitude: point.longitude)
-                
-                coords[0] = loc1
-                coords[1] = loc2
-                
-                let self_poliLine = MKPolyline.init(coordinates: coords, count: 2)
-                
-                self.poliLine = self_poliLine
-                
-                self.map.addOverlay(self_poliLine)
+                self.map.addOverlay(poliLine)
             }
             
-            if self.moverLastLocation != nil {                
-                let location = point.location()
-                
-                let degree = BearingBetweenTwoPoints().getBearingBetweenTwoPoints (location, self.moverLastLocation!)
-                
-                // Move annotationView with route direction
-                ano.mkAnnotationView?.transform = CGAffineTransform(rotationAngle: CGFloat(BearingBetweenTwoPoints().degreesToRadians(degree)))
-                
-                self.moverLastLocation = location
-            } else {
-                self.moverLastLocation = CLLocation (latitude: point.latitude, longitude: point.longitude)
+            let location = point.location()
+
+            if let moverLastLocation = self.moverLastLocation {
+                annotation.mkAnnotationView?.transform = BearingBetweenTwoPoints().getCGAffineTransform(location1: location, location2: moverLastLocation)
             }
             
-            ano.coordinate = point
+            self.moverLastLocation = location
+
+            annotation.coordinate = point
             
             self.showMoverInCenter.addCenterLocationForMap(location: point)
         }
