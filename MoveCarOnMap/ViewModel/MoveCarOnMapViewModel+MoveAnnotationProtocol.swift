@@ -19,18 +19,8 @@ extension MoveCarOnMapViewModel: MoveCarOnMapViewModelProtocol {
         
         annotation.title = name
         
-        let image = #imageLiteral(resourceName: "mycars")
-        let img = image.resize(CGFloat(self.annotationImageSize))
-        
-        let sz = img.size
-        
-        var rds = sz.height
-        
-        if sz.width < sz.height {
-            rds = sz.width
-        }
-        
-        annotation.uiimage = img.roundedRectImageFromImage(image: img, imageSize: sz, cornerRadius: rds/2)
+        let image = #imageLiteral(resourceName: "mycars")        
+        annotation.uiimage = image.mapImage(imageSize: self.annotationImageSize)
         
         mapMover.addAnnotation(annotation)
         
@@ -44,18 +34,7 @@ extension MoveCarOnMapViewModel: MoveCarOnMapViewModelProtocol {
         let annotation = MyAnnotation(title: "Receiver", coordinate: location, isDriver: true, id: "")
         
         let image = #imageLiteral(resourceName: "mycars")
-        let img = image.resize(CGFloat(self.annotationImageSize))
-        
-        let sz = img.size
-        
-        var rds = sz.height
-        
-        if sz.width < sz.height {
-            rds = sz.width
-        }
-        
-        annotation.uiimage = img.roundedRectImageFromImage(image: img, imageSize: sz, cornerRadius: rds/2)
-        
+        annotation.uiimage = image.mapImage(imageSize: self.annotationImageSize)
         annotation.isAnimatingPins = true
         
         moverAnnotation = MoveAnnotation(map: mapMover, destinationLocation: destinationLocation, moverAnnotation: annotation, showMoverInCenter: self)

@@ -9,7 +9,7 @@ import Foundation
 import MapKit
 
 extension CLLocationCoordinate2D {
-    func middleLocationWith(location:CLLocationCoordinate2D) -> CLLocationCoordinate2D {
+    func middleLocationWith(location: CLLocationCoordinate2D) -> CLLocationCoordinate2D {
         
         let lon1 = longitude * Double.pi / 180
         let lon2 = location.longitude * Double.pi / 180
