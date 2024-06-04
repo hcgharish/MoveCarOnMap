@@ -23,7 +23,7 @@ extension MoveAnnotation: AddNewLocationToMover {
         let path = calculatePath.makePath()
         
         if path.isValid() {
-            routePoints!.add(path)
+            routePoints?.add(path)
         }
         
         lastAddedLocation = location

@@ -51,4 +51,18 @@ extension UIImage {
         
         return finalImage!
     }
+    
+    func mapImage(imageSize: Int) -> UIImage {
+        let img = resize(CGFloat(imageSize))
+        
+        let sz = img.size
+        
+        var rds = sz.height
+        
+        if sz.width < sz.height {
+            rds = sz.width
+        }
+        
+        return img.roundedRectImageFromImage(image: img, imageSize: sz, cornerRadius: rds/2)
+    }
 }
